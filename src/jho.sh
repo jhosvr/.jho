@@ -49,6 +49,10 @@ for line in $(cat ${HOME}/repos/.jho/src/tools.txt); do
                 tool="linux-amd64/helm" ;;
             "terraform")
                 unzip -oq terraform ;;
+            "google-cloud-sdk")
+		tar xzf google-cloud-sdk
+		cp -r google-cloud-sdk "${HOME}/"
+		tool="google-cloud-sdk/bin/gcloud" ;;
         esac
         chmod +x "${tool}"
         cp "${tool}" "${HOME}/bin/" ;
