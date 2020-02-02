@@ -52,7 +52,10 @@ for line in $(cat ${HOME}/repos/.jho/src/tools.txt); do
             "google-cloud-sdk")
 		tar xzf google-cloud-sdk
 		cp -r google-cloud-sdk "${HOME}/"
-		tool="google-cloud-sdk/bin/gcloud" ;;
+		cd "${HOME}/google-cloud-sdk"
+		./install.sh -q
+	        tool="${HOME}/google-cloud-sdk/bin/gcloud"
+		;;
         esac
         chmod +x "${tool}"
         cp "${tool}" "${HOME}/bin/" ;
