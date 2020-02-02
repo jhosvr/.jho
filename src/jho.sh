@@ -38,19 +38,21 @@ echo -n "Pulling tools: "
 for line in $(cat ${HOME}/repos/.jho/src/tools.txt); do
     tool="$(echo ${line} | cut -d';' -f1)"
     url="$(echo ${line} | cut -d';' -f2)"
-    echo -n "${tool} "
-    wget -q "${url}" -O "${tool}"
+    if [[ ! -e "${HOME}/bin/${tool}" ]]; then
+        echo -n "${tool} "
+        wget -q "${url}" -O "${tool}"
 
-    # handle non binary downloads
-    case "${tool}" in
-        "helm")
-            tar -xzf helm
-            tool="linux-amd64/helm" ;;
-        "terraform")
-            unzip -oq terraform ;;
-    esac
-    chmod +x "${tool}"
-    cp "${tool}" "${HOME}/bin/" ;
+        # handle non binary downloads
+        case "${tool}" in
+            "helm")
+                tar -xzf helm
+                tool="linux-amd64/helm" ;;
+            "terraform")
+                unzip -oq terraform ;;
+        esac
+        chmod +x "${tool}"
+        cp "${tool}" "${HOME}/bin/" ;
+    fi
 done
 echo
 
