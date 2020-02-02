@@ -2,3 +2,4 @@ kubectl;https://storage.googleapis.com/kubernetes-release/release/v1.17.0/bin/li
 helm;https://get.helm.sh/helm-v3.0.3-linux-amd64.tar.gz
 terraform;https://releases.hashicorp.com/terraform/0.12.20/terraform_0.12.20_linux_amd64.zip
 sops;https://github.com/mozilla/sops/releases/download/v3.5.0/sops-v3.5.0.linux
+minikube;https://github.com/kubernetes/minikube/releases/download/v1.6.2/minikube-linux-amd64
