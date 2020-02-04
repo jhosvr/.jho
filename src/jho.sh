@@ -50,15 +50,18 @@ for line in $(cat ${HOME}/.jho/src/tools.txt); do
             "terraform")
                 unzip -oq terraform ;;
             "google-cloud-sdk")
-		tar xzf google-cloud-sdk
-		cp -r google-cloud-sdk "${HOME}/"
-		cd "${HOME}/google-cloud-sdk"
-		./install.sh -q
-	        tool="${HOME}/google-cloud-sdk/bin/gcloud"
-		;;
+		        tar xzf google-cloud-sdk
+		        cp -r google-cloud-sdk "${HOME}/"
+		        cd "${HOME}/google-cloud-sdk"
+		        ./install.sh -q ;;
         esac
-        chmod +x "${tool}"
-        cp "${tool}" "${HOME}/bin/" ;
+
+        if [[ "${tool}" == "google-cloud-sdk" ]]; then
+            ln -sf "${HOME}/google-cloud-sdk/bin/gcloud" "${HOME}/bin/gcloud"
+        else
+            chmod +x "${tool}"
+            cp "${tool}" "${HOME}/bin/"
+        fi
     fi
 done
 echo
