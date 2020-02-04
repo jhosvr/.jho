@@ -6,7 +6,7 @@
 ###
 
 check_directory(){ 
-    if [[ ! -d "${1}" ]]; then mkdir -p "${1}"; fi; 
+    if [[ ! -d "${1}" ]]; then mkdir -m 0700 -p "${1}"; fi; 
 }
 
 command_exists(){
@@ -35,7 +35,7 @@ if [[ ! -d "${HOME}/tmp/jho" ]]; then mkdir -p "${HOME}/tmp/jho"; fi
 cd "${HOME}/tmp/jho"
 echo -n "Pulling tools: "
 # gets binaries from 2nd field of tools.txt file
-for line in $(cat ${HOME}/repos/.jho/src/tools.txt); do
+for line in $(cat ${HOME}/.jho/src/tools.txt); do
     tool="$(echo ${line} | cut -d';' -f1)"
     url="$(echo ${line} | cut -d';' -f2)"
     if [[ ! -e "${HOME}/bin/${tool}" ]]; then
