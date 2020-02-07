@@ -4,3 +4,4 @@ terraform;https://releases.hashicorp.com/terraform/0.12.20/terraform_0.12.20_lin
 sops;https://github.com/mozilla/sops/releases/download/v3.5.0/sops-v3.5.0.linux
 minikube;https://github.com/kubernetes/minikube/releases/download/v1.6.2/minikube-linux-amd64
 google-cloud-sdk;https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-278.0.0-linux-x86_64.tar.gz
+kops;https://github.com/kubernetes/kops/releases/download/v1.15.1/kops-linux-amd64
